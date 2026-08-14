@@ -17,5 +17,7 @@
               uses: actions/checkout@v4
             - name: Test
               run: docker compose run --rm app sh -c "python manage.py test"
+            - name: Debug flake8 config
+              run: docker compose run --rm app sh -c "pwd && ls -la && cat .flake8 && flake8 --version"
             - name: Lint
               run: docker compose run --rm app sh -c "flake8"
